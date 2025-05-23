@@ -31,7 +31,6 @@ public class TreeController {
     @PostMapping("/create")
     public Tree create(@RequestBody Tree newTree) {
       return this.service.create(newTree);
-
     }
 
     @GetMapping("/readAll")
