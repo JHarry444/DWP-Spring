@@ -24,6 +24,13 @@ public class Tree {
         this.colour = colour;
     }
 
+    public Tree(Integer id, String species, TreeType type, String colour) {
+        this.id = id;
+        this.species = species;
+        this.type = type;
+        this.colour = colour;
+    }
+
     //  DON'T FORGET THE GETTERS AND SETTERS
     public Integer getId() {
         return id;
