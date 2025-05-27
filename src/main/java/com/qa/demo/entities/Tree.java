@@ -2,6 +2,8 @@ package com.qa.demo.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 public class Tree {
 
@@ -29,6 +31,18 @@ public class Tree {
         this.species = species;
         this.type = type;
         this.colour = colour;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Tree tree = (Tree) o;
+        return Objects.equals(id, tree.id) && Objects.equals(species, tree.species) && type == tree.type && Objects.equals(colour, tree.colour);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, species, type, colour);
     }
 
     //  DON'T FORGET THE GETTERS AND SETTERS

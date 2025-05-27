@@ -57,7 +57,8 @@ public class TreeServiceDB {
             toUpdate.setType(type);
         }
 //        then save it back to the DB (do NOT change the id!)
-        return this.repo.save(toUpdate);
+        Tree updated = this.repo.save(toUpdate);
+        return updated;
     }
 
     public Tree delete(int id) {
