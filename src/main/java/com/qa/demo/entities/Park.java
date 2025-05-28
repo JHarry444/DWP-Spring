@@ -1,9 +1,8 @@
 package com.qa.demo.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Park {
@@ -14,9 +13,16 @@ public class Park {
 
     private String name;
 
+    @OneToMany(mappedBy = "park")
+    private List<Tree> trees;
+
     public Park(Integer id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Park(Integer id) {
+        this.id = id;
     }
 
     public Park(String name) {
@@ -40,5 +46,13 @@ public class Park {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Tree> getTrees() {
+        return trees;
+    }
+
+    public void setTrees(List<Tree> trees) {
+        this.trees = trees;
     }
 }

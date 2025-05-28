@@ -1,11 +1,13 @@
 package com.qa.demo.services;
 
+import com.qa.demo.dtos.ParkDTO;
 import com.qa.demo.entities.Park;
 import com.qa.demo.exceptions.ParkNotFoundException;
 import com.qa.demo.repos.ParkRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ParkService {
@@ -21,8 +23,8 @@ public class ParkService {
         return this.repo.save(newPark);
     }
 
-    public List<Park> read() {
-        return this.repo.findAll();
+    public List<ParkDTO> read() {
+        return this.repo.findAll().stream().map(ParkDTO::new).collect(Collectors.toList());
     }
 
     public Park read(int id) {

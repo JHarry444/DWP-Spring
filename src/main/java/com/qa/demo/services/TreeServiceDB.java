@@ -1,5 +1,7 @@
 package com.qa.demo.services;
 
+import com.qa.demo.dtos.TreeDTO;
+import com.qa.demo.entities.Park;
 import com.qa.demo.entities.Tree;
 import com.qa.demo.entities.TreeType;
 import com.qa.demo.exceptions.TreeNotFoundException;
@@ -20,8 +22,9 @@ public class TreeServiceDB {
         this.repo = repo;
     }
 
-    public Tree create(Tree newTree) {
-        return this.repo.save(newTree);
+    public TreeDTO create(TreeDTO newTreeDTO) {
+        Tree saved = this.repo.save(new Tree(newTreeDTO));
+        return new TreeDTO(saved);
     }
 
     public List<Tree> read() {
