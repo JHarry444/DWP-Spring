@@ -17,6 +17,10 @@ public class Tree {
     private TreeType type;
     private String colour;
 
+    @ManyToOne
+    @JoinColumn(name = "my_park_id") // changes the name of the foreign key column
+    private Park park;
+
     public Tree() {
     }
 
@@ -76,5 +80,13 @@ public class Tree {
 
     public void setColour(String colour) {
         this.colour = colour;
+    }
+
+    public Park getPark() {
+        return park;
+    }
+
+    public void setPark(Park park) {
+        this.park = park;
     }
 }
