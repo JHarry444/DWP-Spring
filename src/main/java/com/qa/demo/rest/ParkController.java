@@ -1,6 +1,7 @@
 package com.qa.demo.rest;
 
 
+import com.qa.demo.dtos.ParkDTO;
 import com.qa.demo.entities.Park;
 import com.qa.demo.services.ParkService;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +32,7 @@ public class ParkController {
     }
 
     @GetMapping("/readAll")
-    public List<Park> read() {
+    public List<ParkDTO> read() {
         return this.service.read();
     }
 

@@ -1,6 +1,7 @@
 package com.qa.demo.rest;
 
 
+import com.qa.demo.dtos.TreeDTO;
 import com.qa.demo.entities.Tree;
 import com.qa.demo.entities.TreeType;
 import com.qa.demo.services.TreeService;
@@ -29,7 +30,7 @@ public class TreeController {
     }
 
     @PostMapping("/create")
-    public Tree create(@RequestBody Tree newTree) {
+    public TreeDTO create(@RequestBody TreeDTO newTree) {
       return this.service.create(newTree);
     }
 

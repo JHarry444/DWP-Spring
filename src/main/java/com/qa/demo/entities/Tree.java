@@ -1,5 +1,6 @@
 package com.qa.demo.entities;
 
+import com.qa.demo.dtos.TreeDTO;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -22,6 +23,14 @@ public class Tree {
     private Park park;
 
     public Tree() {
+    }
+
+    public Tree(TreeDTO dto) {
+        this.setId(dto.getId());
+        this.setSpecies(dto.getSpecies());
+        this.setType(dto.getType());
+        this.setColour(dto.getColour());
+        this.setPark(new Park(dto.getParkId()));
     }
 
     public Tree(String species, TreeType type, String colour) {
