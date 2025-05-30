@@ -14,6 +14,7 @@ import java.util.List;
 
 // Spring uses annotations to configure the project
 @RestController // it allows Spring to process HTTP requests
+@CrossOrigin
 public class TreeController {
 
     private TreeServiceDB service;
